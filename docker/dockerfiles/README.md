@@ -2,7 +2,7 @@
 
 | Command | Descirption |
 | :------ | ----------- |
-| From | This is the first command in the Dockerfile. Without this, we can’t build an image. We can build the image just with this command. when we build just with FROM, we are actually taking the base image CMD whenever the image is instantiated. |
+| FROM | This is the first command in the Dockerfile. Without this, we can’t build an image. We can build the image just with this command. when we build just with FROM, we are actually taking the base image CMD whenever the image is instantiated. |
 | CMD | This command is used to give the default commands when the image is instantiated, it doesn't execute while build stage. There should be only one CMD per Dockerfile, you can list multiple but the last one will be executed. |
 | ENTRYPOINT | ENTRYPOINT is used as an executable for the container. ex: Default ENTRYPOINT for ubuntu is ```bash``` |
 | WORKDIR | WORKDIR sets the working directory for all the consecutive commands. we can have multiple WORKDIR commands and will be appended with a relative path. |
