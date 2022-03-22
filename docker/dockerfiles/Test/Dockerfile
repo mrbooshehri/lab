@@ -2,5 +2,6 @@
 
 FROM ubuntu:18.04
 
-WORKDIR /etc
+ENV goto /etc
+WORKDIR $goto
 CMD ["ls"]
