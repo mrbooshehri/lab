@@ -14,7 +14,7 @@
 - [ ] Docker Bind Volumes
 
 # Cheat sheet
-![img](./img.jpg)
+![img](./cheatsheet/img.jpg)
 
 # Other Resources
 [github](https://github.com/wsargent/docker-cheat-sheet)
