@@ -1,6 +1,7 @@
 # debian-based apache dockerfile
 
-FROM ubuntu:18.04
+ARG LINUX_VERSION=18.04
+FROM ubuntu:$LINUX_VERSION
 
 ENV goto /etc
 WORKDIR $goto
