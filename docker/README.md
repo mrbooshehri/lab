@@ -12,6 +12,8 @@
 - [x] Communicating between two docker containers [video](https://www.youtube.com/watch?v=y_XFIidjtEs)
 - [x] Docker Volumes
 - [ ] Docker Bind Volumes
+- [x] Dockerfile
+- [x] Docker compose
 
 # Cheat sheet
 ![img](./cheatsheet/img.jpg)
