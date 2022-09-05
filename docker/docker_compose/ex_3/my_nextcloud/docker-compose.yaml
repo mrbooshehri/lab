@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+        proxy:
+                image: caprover/nginx-reverse-proxy:latest
+        letsencrypt:
+                image: linuxserver/letsencrypt:latest
+        db:
+                image: mongodb:latest
+        app:
+                image: nextcloud:latest
+                depends_on:
+                        - proxy
+                        - letsencrypt
+                        - db
+                ports: 
+                        - "8000:80"
