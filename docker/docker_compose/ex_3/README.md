@@ -67,8 +67,10 @@
 
 # other top levels
 
+```yaml
 volumes:
 	nextcloud:
 	db:
 network:
 	nextcloud-network
+```
