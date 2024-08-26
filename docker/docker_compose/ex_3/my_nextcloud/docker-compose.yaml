@@ -6,8 +6,8 @@ services:
     container_name: nextcloud_proxy
     image: jwilder/nginx-proxy
     ports:
-      - "8080:80"
-      - "8443:443"
+      - "9080:80"
+      - "9443:443"
     networks:
       - nextcloud_network
     restart: unless-stopped
@@ -15,7 +15,7 @@ services:
       - ./proxy/conf.d:/etc/nginx/conf.d:rw
       - ./proxy/vhost.d:/etc/nginx/vhost.d:rw
       - ./proxy/html:/urs/share/nginx/html:rw
-      - ./proxy/certs:/etc/nginx/certs:ro
+      - ./proxy/certs:/etc/nginx/certs:rw
      # - ./proxy/localtime:/etc/localtime:ro
 
   letsencrypt:
@@ -25,11 +25,13 @@ services:
       - nextcloud_network
     depends_on:
       - proxy
+    volumes_from:
+      - proxy
     volumes:
       - ./proxy/vhost.d:/etc/nginx/vhost.d:rw
       - ./proxy/html:/urs/share/nginx/html:rw
-      - ./proxy/certs:/etc/nginx/certs:ro
-      - ./proxy/localtime:/etc/localtime:ro
+      - ./proxy/certs:/etc/nginx/certs:rw
+      - ./proxy/localtime:/etc/localtime:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
 
@@ -61,8 +63,8 @@ services:
     - ./app/themes:/var/www/html/themes
     #- /etc/localtime:/etc/localtime:ro
     environment:
-      - VIRTUAL_HOST=192.168.100.32
-      - LETSENCRYPT_HOST=192.168.100.32
+      - VIRTUAL_HOST=192.168.1.100
+      - LETSENCRYPT_HOST=192.168.1.100
       - LETSENCRYPT_EMAIL=test@domin.com
 
 volumes:
